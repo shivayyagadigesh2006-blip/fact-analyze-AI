@@ -1,0 +1,5 @@
+
+{
+  "name": "Fact Check AI",
+  "description": "An AI-powered application to detect fake news and analyze claims in real-time. It provides evidence-based reasoning and sources by leveraging web access through the Gemini API."
+}
