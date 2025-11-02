@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AnalysisResult, Source } from '../types';
 import { VERDICT_STYLES } from '../constants';
 
@@ -28,6 +28,9 @@ const SourceLink: React.FC<{ source: Source }> = ({ source }) => (
 
 
 export const ResultDisplay: React.FC<ResultDisplayProps> = ({ result }) => {
+  // No TTS: display result only
+  // (Auto-speak logic above triggers on result change)
+
   const styles = VERDICT_STYLES[result.verdict];
   const Icon = styles.icon;
 
@@ -35,9 +38,12 @@ export const ResultDisplay: React.FC<ResultDisplayProps> = ({ result }) => {
     <div className="mt-8 p-4 sm:p-6 bg-slate-800 border border-slate-700 rounded-xl animate-fade-in-up">
       <div className={`flex flex-col sm:flex-row items-start sm:items-center p-4 border-2 ${styles.borderColor} ${styles.bgColor} rounded-lg`}>
         <Icon className={`h-12 w-12 sm:h-16 sm:w-16 ${styles.textColor} flex-shrink-0 mr-4`} />
-        <div>
-          <h2 className={`text-2xl sm:text-3xl font-bold ${styles.textColor}`}>{styles.label}</h2>
-          <p className="mt-1 text-slate-300">{result.summary}</p>
+        <div className="flex items-start sm:items-center justify-between w-full">
+          <div>
+            <h2 className={`text-2xl sm:text-3xl font-bold ${styles.textColor}`}>{styles.label}</h2>
+            <p className="mt-1 text-slate-300">{result.summary}</p>
+          </div>
+          <div className="ml-4 mt-2 sm:mt-0" />
         </div>
       </div>
 

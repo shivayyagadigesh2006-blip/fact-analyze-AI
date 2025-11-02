@@ -38,7 +38,7 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-900 font-sans p-4 sm:p-6 lg:p-8">
       <div className="container mx-auto max-w-3xl">
-        <Header />
+  <Header />
         <main>
           <ClaimInput
             claim={claim}
